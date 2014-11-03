@@ -1,11 +1,14 @@
 //- Main Container
-.megatron.megatron--desktop.video--small
+.megatron.megatron--desktop(ng-init="videoSize = 'hd'")
 
   //- Optional
   .megatron__head
 
   //- Body
-  .megatron__body
+  .megatron__body(ng-class="{ \
+    'video--small': videoSize == 'small', \
+    'video--hd': videoSize == 'hd' \
+  }" )
 
     //- First arm - Title, Video, Actions
     .megatron__arm.arm--one
@@ -22,6 +25,15 @@
       //- Any Video Actions
       .megatron__actions
         nav.megatron__menu
+          ul.megatron__options
+            li: a: i.fa.fa-lg.fa-repeat
+            li: a: i.fa.fa-lg.fa-volume-up
+            li: a(ng-click="videoSize = 'small'" ng-class="{active: videoSize == 'small'}"): i.fa.fa-lg.fa-compress
+            li: a(ng-click="videoSize = 'hd'" ng-class="{active: videoSize == 'hd'}"): i.fa.fa-lg.fa-expand
+            li: a: i.fa.fa-lg.fa-arrows-alt
+
+          .megatron__gold: button Gold
+
         nav.megatron__features
         button.megatron__button
           .text
@@ -31,18 +43,20 @@
     //- Second arm - Info Chat
     .megatron__arm.arm--two
 
-      //- Title bar
-      .megatron__bar
-        .megatron__ranks
+      .megatron__hand.hand--one
 
-        .megatron__favorite
+        //- Title bar
+        .megatron__bar
+          .megatron__ranks
 
-      .megatron__info
-      .megatron__chat
+          .megatron__favorite
 
-    //- Third arm - ads.
-    .megatron__arm.arm--three
-      .megatron__panel
+        .megatron__info
+        .megatron__chat
+
+      //- Third arm - ads.
+      .megatron__hand.hand--two
+        .megatron__panel
 
   //- Footer
   .megatron__foot
