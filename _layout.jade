@@ -1,0 +1,19 @@
+//- HTML5
+doctype html
+html(lang="en")
+  head
+
+    //- Meta tag for making mobile devices
+    meta(name="viewport" content="width=device-width, initial-scale=1.0, \
+      maximum-scale=1.0, user-scalable=no, minimal-ui")
+
+    //- CSS
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
+    link(href="main.css" rel="stylesheet")
+
+    //- Javascript
+    script.
+      angular.module('megatron', []);
+
+  body(ng-app="megatron")
+    != yield

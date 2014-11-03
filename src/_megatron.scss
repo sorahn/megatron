@@ -1,0 +1,106 @@
+// Variables
+$megatron-bar-height: 24px !default;
+$megatron-bar-font-size: 14px !default;
+$megatron-bar-background: gray !default;
+$megatron-bar-color: white !default;
+
+$megatron-small-video-width: 45% !default;
+$megatron-hd-video-width: 65% !default;
+
+
+.megatron {
+
+
+  // .megatron__body
+  &__body {
+    @include display(flex);
+    width: 100%;
+    background: lightgreen;
+    height: 600px;
+
+    .megatron--desktop & {
+      @include flex-direction(row);
+      @include align-items(stretch);
+    }
+  }
+
+
+  // .megatron__arm
+  &__arm {
+    @include display(flex);
+
+    &.arm--one {
+      background: lightblue;
+      border-right: 2px solid white;
+
+      .megatron--desktop & {
+        @include flex(none);
+        @include flex-direction(column);
+      }
+
+      .video--small & {
+        width: $megatron-small-video-width;
+      }
+
+      .video--hd & {
+        width: $megatron-hd-video-width;
+      }
+    }
+
+    &.arm--two {
+      background: desaturate(orange, 15%);
+
+      .megatron--desktop & {
+        @include flex(auto);
+        @include flex-direction(column);
+      }
+    }
+
+    &.arm--three {
+
+      .megatron--desktop & {
+        @include flex(none);
+        @include flex-direction(column);
+      }
+    }
+  }
+
+  // .megatron__bar
+  &__bar {
+    @include display(flex);
+    height: $megatron-bar-height;
+    background: $megatron-bar-background;
+
+    .arm--two & {
+      @include justify-content(space-between);
+    }
+
+    h3 {
+      @include flex(auto);
+      color: $megatron-bar-color;
+      margin: 0;
+      line-height: $megatron-bar-height;
+      font-size: $megatron-bar-font-size;
+      padding: 0 .5em;
+    }
+
+    .close {
+      @include flex(none);
+      height: $megatron-bar-height;
+      line-height: $megatron-bar-height;
+      color: $megatron-bar-color;
+      font-size: $megatron-bar-font-size;
+      padding: 0 .5em;
+    }
+
+    .ranks {
+      @include flex(none);
+      padding: 0 .5em;
+    }
+
+    .favorite {
+      @include flex(none);
+      padding: 0 .5em;
+    }
+  }
+}

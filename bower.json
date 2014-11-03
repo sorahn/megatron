@@ -1,0 +1,21 @@
+{
+  "name": "megatron",
+  "version": "0.0.0",
+  "authors": [
+    "Daryl Roberts <d@rbrts.io>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bourbon": "v3.2.3",
+    "normalize.scss": "kristerkari/normalize.scss",
+    "compass": "harp/compass#0.13.alpha.12"
+  }
+}
