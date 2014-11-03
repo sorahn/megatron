@@ -1,6 +1,8 @@
 megatron
 ========
 
+Shhh, as far as you know, this doesn't exist :)
+
 * `$ git clone http://github.com/drbrts/megatron`
 * `$ cd megatron`
 * `$ npm install -g harp bower`
