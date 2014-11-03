@@ -200,7 +200,7 @@ $megatron-gold-background: #ffcb00 !default;
     background: $megatron-menu-background;
 
     .video--hd & {
-      @include flex(none);
+      @include flex(3);
       @include align-content(stretch);
     }
   }
@@ -274,6 +274,10 @@ $megatron-gold-background: #ffcb00 !default;
 
     .video--small & {
       min-height: $megatron-button-height;
+    }
+
+    .video--hd & {
+      @include flex(2);
     }
 
     h3 {
