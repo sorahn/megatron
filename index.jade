@@ -12,21 +12,30 @@
 
       //- Title bar
       .megatron__bar
-        h3.megatron__title Megatron Title
-        .close: i.fa.fa-times
+        h3.megatron__title Megatron (Final Battle)
+        .megatron__close: i.fa.fa-times
 
+      //- Video Container
       .megatron__video
+        video(poster="megatron.jpg")
+
+      //- Any Video Actions
       .megatron__actions
+        nav.megatron__menu
+        nav.megatron__features
+        button.megatron__button
+          .text
+            h3 Click Here
+            h4 push this giant button
 
     //- Second arm - Info Chat
     .megatron__arm.arm--two
 
       //- Title bar
       .megatron__bar
-        .ranks
+        .megatron__ranks
 
-        .favorite
-
+        .megatron__favorite
 
       .megatron__info
       .megatron__chat
