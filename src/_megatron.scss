@@ -45,7 +45,6 @@ $megatron-gold-width: 200px !default;
     @include display(flex);
 
     &.arm--one {
-
       .megatron--desktop & {
         @include flex(none);
         @include flex-direction(column);
@@ -238,11 +237,10 @@ $megatron-gold-width: 200px !default;
       @include button($base-color: #ffcb00, $padding: 0);
       border-radius: 0;
       text-transform: uppercase;
-      padding-top: 1px;
+      padding-top: 2px;
       padding-left: 3em;
       padding-right: 3em;
     }
-
   }
 
   &__features {
