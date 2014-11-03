@@ -26,11 +26,11 @@
       .megatron__actions
         nav.megatron__menu
           ul.megatron__options
-            li: a: i.fa.fa-lg.fa-repeat
-            li: a: i.fa.fa-lg.fa-volume-up
+            li: a.disabled: i.fa.fa-lg.fa-repeat
+            li: a.disabled: i.fa.fa-lg.fa-volume-up
             li: a(ng-click="videoSize = 'small'" ng-class="{active: videoSize == 'small'}"): i.fa.fa-lg.fa-compress
             li: a(ng-click="videoSize = 'hd'" ng-class="{active: videoSize == 'hd'}"): i.fa.fa-lg.fa-expand
-            li: a: i.fa.fa-lg.fa-arrows-alt
+            li: a.disabled: i.fa.fa-lg.fa-arrows-alt
 
           .megatron__gold: button Gold
 
@@ -53,13 +53,16 @@
 
         .megatron__info
           blockquote
-            div Privates and exclusives!
-            div Get a discount when u get a Block Session!
-            br
-            div $2=booty shake, $5=tits/feet $10=nude pix!
-            div $25=Pole dance to a song!
+            p Sentient robotic lifeform from the planet Cybertron and the leader of the villainous Decepticons.
 
-        .megatron__topic
+        .megatron__note
+          h6 What's going on over here?
+          p.
+            I has the ability to transform between his robot shape and
+            various weapons or vehicles, but these "alternate-modes", my
+            origins and even personality, can vary depending on which
+            "universe" I'm seen in.
+
         .megatron__chat
 
 
