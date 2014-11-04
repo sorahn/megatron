@@ -26,5 +26,5 @@ megatron.controller 'megatron-size', [
     angular.element($window).bind 'resize', ->
       $scope.setWindowSizes()
       $scope.downsizeIfNecessary()
-      $scope.$apply()
+      $scope.$digest()
 ]
