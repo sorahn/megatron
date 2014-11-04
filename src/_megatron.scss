@@ -87,7 +87,7 @@ body {
       @include flex-direction(column);
 
       .video--small & {
-        @include flex(auto);
+        @include flex(2 1 auto);
         min-width: 25%;
 
         .megatron--desktop & {
@@ -111,8 +111,8 @@ body {
       }
 
       .video--small & {
-        @include flex(none);
-        width: 270px;
+        @include flex(1 1 auto);
+        min-width: 270px;
       }
 
       .video--hd & {
@@ -311,6 +311,7 @@ body {
       padding: 0.5em 10px;
       padding-left: 32px;
       font-size: 11px;
+      min-height: 32px;
 
       &::before {
         text-align: center;
@@ -318,7 +319,6 @@ body {
         top: -4px;
         left: 0;
         width: 32px;
-        min-height: 32px;
         color: #ccc;
         content: open-quote;
         font-size: 64px;
