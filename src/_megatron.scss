@@ -22,6 +22,10 @@ $megatron-button-background: #3399cc !default;
 $megatron-gold-width: 200px !default;
 $megatron-gold-background: #ffcb00 !default;
 
+body {
+  padding: 50px;
+}
+
 .megatron {
   margin: 0 auto;
   min-width: $megatron-min-width;
@@ -79,6 +83,8 @@ $megatron-gold-background: #ffcb00 !default;
 
     &.hand--one {
       background: desaturate(orange, 15%);
+      @include display(flex);
+      @include flex-direction(column);
 
       .video--small & {
         @include flex(auto);
@@ -293,7 +299,9 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
-  &__info {
+  // .megatron__note
+  &__note {
+    border: 1px solid $megatron-bar-background;
 
     blockquote {
       position: relative;
@@ -321,11 +329,10 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
-  // .megatron__note
-  &__note {
+  &__info {
     background: $megatron-gold-background;
     padding: 0.5em;
-
+    border: 1px solid darken($megatron-gold-background, 20%);
     h6 {
       margin: 0;
       font-size: 12px;
@@ -335,5 +342,11 @@ $megatron-gold-background: #ffcb00 !default;
       margin: 0;
       font-size: 11px;
     }
+  }
+
+  &__chat {
+    @include flex(1);
+    border: 1px solid $megatron-bar-background;
+    background: white;
   }
 }

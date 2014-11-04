@@ -1,14 +1,11 @@
 //- Main Container
-.megatron.megatron--desktop(ng-init="videoSize = 'hd'")
+.megatron.megatron--desktop()
 
   //- Optional
   .megatron__head
 
   //- Body
-  .megatron__body(ng-class="{ \
-    'video--small': videoSize == 'small', \
-    'video--hd': videoSize == 'hd' \
-  }" )
+  .megatron__body(ng-controller="megatron-size" ng-class="'video--' + videoSize")
 
     //- First arm - Title, Video, Actions
     .megatron__arm.arm--one
@@ -28,8 +25,8 @@
           ul.megatron__options
             li: a.disabled: i.fa.fa-lg.fa-repeat
             li: a.disabled: i.fa.fa-lg.fa-volume-up
-            li: a(ng-click="videoSize = 'small'" ng-class="{active: videoSize == 'small'}"): i.fa.fa-lg.fa-compress
-            li: a(ng-click="videoSize = 'hd'" ng-class="{active: videoSize == 'hd'}"): i.fa.fa-lg.fa-expand
+            li: a(ng-click="setVideoSize('small')" ng-class="{active: videoSize == 'small'}"): i.fa.fa-lg.fa-compress
+            li: a(ng-click="setVideoSize('hd')" ng-class="{active: videoSize == 'hd'}"): i.fa.fa-lg.fa-expand
             li: a.disabled: i.fa.fa-lg.fa-arrows-alt
 
           .megatron__gold: button Gold
@@ -51,17 +48,15 @@
 
           .megatron__favorite
 
-        .megatron__info
+        .megatron__note
           blockquote
             p Sentient robotic lifeform from the planet Cybertron and the leader of the villainous Decepticons.
 
-        .megatron__note
+        .megatron__info
           h6 What's going on over here?
           p.
             I have the ability to transform between his robot shape and
-            various weapons or vehicles, but these "alternate-modes", my
-            origins and even personality, can vary depending on which
-            "universe" I'm seen in.
+            various weapons or vehicles.
 
         .megatron__chat
 
