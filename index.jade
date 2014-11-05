@@ -1,11 +1,11 @@
 //- Main Container
-.megatron.megatron--desktop()
+#megatron.megatron.megatron--desktop(ng-controller="megatron")
 
   //- Optional
   .megatron__head
 
   //- Body
-  .megatron__body(ng-controller="megatron-size" ng-class="'video--' + videoSize")
+  .megatron__body(ng-class="'video--' + videoSize")
 
     //- First arm - Title, Video, Actions
     .megatron__arm.arm--one
@@ -25,11 +25,17 @@
           ul.megatron__options
             li: a.disabled: i.fa.fa-lg.fa-repeat
             li: a.disabled: i.fa.fa-lg.fa-volume-up
-            li: a(ng-click="setVideoSize('small')" ng-class="{active: videoSize == 'small'}"): i.fa.fa-lg.fa-compress
-            li: a(ng-click="setVideoSize('hd')" ng-class="{active: videoSize == 'hd'}"): i.fa.fa-lg.fa-expand
-            li: a.disabled: i.fa.fa-lg.fa-arrows-alt
 
-          .megatron__gold: button Gold
+            li: a(ng-click="changeVideoSize('small')" ng-class="{active: videoSize == 'small'}")
+              i.fa.fa-lg.fa-compress
+
+            li: a(ng-click="changeVideoSize('hd')" ng-class="{active: videoSize == 'hd'}")
+              i.fa.fa-lg.fa-expand
+
+            li: a(ng-click="changeVideoSize('fs')" ng-class="{active: videoSize == 'fs'}")
+              i.fa.fa-lg.fa-arrows-alt
+
+          .megatron__gold: button Gold Button
 
         nav.megatron__features
         button.megatron__button

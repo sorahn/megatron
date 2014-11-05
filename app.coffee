@@ -1,10 +1,21 @@
-megatron = angular.module 'megatron', []
+megatron = angular.module 'megatron', [
+  'duScroll'
+]
 
-megatron.controller 'megatron-size', [
+megatron.controller 'megatron', [
 
-  '$scope', '$window', ($scope, $window) ->
+  '$scope', '$window', '$document'
+  ($scope,   $window,   $document) ->
 
-    $scope.setVideoSize = (size) =>
+    $scope.changeVideoSize = (size) ->
+      if size != 'fs' then $scope.setVideoSize size
+      else
+        mega = angular.element document.getElementById 'megatron'
+        $document.scrollToElementAnimated mega, 0, 500
+          .then $scope.setVideoSize size
+
+    $scope.setVideoSize = (size) ->
+
       $window.localStorage.setItem 'megatron-size', size
       $scope.videoSize = size;
       console.log size
