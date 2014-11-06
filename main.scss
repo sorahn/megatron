@@ -1,5 +1,30 @@
 @import "bower_components/normalize.scss/normalize";
 @import "bower_components/bourbon/dist/bourbon";
 
+$contrasted-dark-default: #000000;
+$contrasted-light-default: #ffffff;
+
+
+@function brightness($color) {
+  @if type-of($color) == color {
+    @return ((red($color) * .299) + (green($color) * .587) + (blue($color) * .114)) / 255 * 100%;
+  }
+  @else {
+    @return unquote("brightness(#{$color})");
+  }
+}
+
+@function contrast-color($color, $dark: $contrasted-dark-default, $light: $contrasted-light-default) {
+  @if $color == null {
+    @return null;
+  }
+  @else {
+    $color-brightness: brightness($color);
+    $dark-text-brightness: brightness($dark);
+    $light-text-brightness: brightness($light);
+    @return if(abs($color-brightness - $light-text-brightness) > abs($color-brightness - $dark-text-brightness), $light, $dark);
+  }
+}
+
 
 @import "src/megatron.scss";

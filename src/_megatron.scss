@@ -3,24 +3,28 @@ $megatron-min-width: 940px;
 
 $megatron-bar-height: 24px !default;
 $megatron-bar-font-size: 14px !default;
-$megatron-bar-background: gray !default;
-$megatron-bar-color: white !default;
-
+$megatron-bar-background: #A3A6A6 !default;
+$megatron-bar-color: #F6F7F7 !default;
 $megatron-menu-height: 44px !default;
-$megatron-menu-background: #444 !default;
-$megatron-menu-color: #999 !default;
-$megatron-menu-color-hover: lightgray !default;
-$megatron-menu-color-active: lightgray !default;
-$megatron-menu-color-disabled: #555 !default;
+
+$megatron-menu-background: #565857 !default;
+$megatron-menu-color-active: contrast-color($megatron-menu-background) !default;
+$megatron-menu-color-hover: darken($megatron-menu-color-active, 10%) !default;
+$megatron-menu-color: darken($megatron-menu-color-active, 25%) !default;
+$megatron-menu-color-disabled: darken($megatron-menu-color, 25%) !default;
 
 $megatron-small-video-width: 45% !default;
 $megatron-hd-video-width: 75% !default;
 
 $megatron-button-height: 80px !default;
-$megatron-button-background: #3399cc !default;
+$megatron-button-background: #9C756B !default;
+$megatron-button-color: contrast-color($megatron-button-background) !default;
 
 $megatron-gold-width: 200px !default;
-$megatron-gold-background: #ffcb00 !default;
+$megatron-gold-background: #59584F !default;
+$megatron-gold-color: contrast-color($megatron-gold-background) !default;
+
+
 
 body {
   padding: 50px 0 0;
@@ -154,6 +158,8 @@ body {
       line-height: $megatron-bar-height;
       font-size: $megatron-bar-font-size;
       padding: 0 .5em;
+      letter-spacing: (25em / 1000);
+      font-weight: normal;
     }
   }
 
@@ -360,6 +366,7 @@ body {
 
   &__info {
     background: $megatron-gold-background;
+    color: $megatron-gold-color;
     padding: 0.5em;
     border: 1px solid darken($megatron-gold-background, 20%);
 

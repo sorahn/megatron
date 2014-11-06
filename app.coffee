@@ -26,6 +26,7 @@ megatron.controller 'megatron', [
 
       console.log "#{$scope.windowWidth} x #{$scope.windowHeight}"
 
+
     $scope.downsizeIfNecessary = ->
       if $scope.windowWidth < 940 then console.error 'STOP'
 
@@ -33,6 +34,8 @@ megatron.controller 'megatron', [
 
     $scope.videoSize = $window.localStorage.getItem 'megatron-size'
     $scope.videoSize ?= 'hd'
+
+    $scope.aspectRatio = (9 / 16);
 
     angular.element($window).bind 'resize', ->
       $scope.setWindowSizes()
