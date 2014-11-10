@@ -15,16 +15,13 @@ $megatron-menu-color-disabled: #555 !default;
 
 $megatron-small-video-width: 45% !default;
 $megatron-hd-video-width: 75% !default;
+$megatron-fs-video-width: 85% !default;
 
 $megatron-button-height: 80px !default;
 $megatron-button-background: #3399cc !default;
 
 $megatron-gold-width: 200px !default;
 $megatron-gold-background: #ffcb00 !default;
-
-body {
-  padding: 50px 0 0;
-}
 
 .megatron {
   margin: 0 auto;
@@ -43,7 +40,7 @@ body {
     }
 
     &.video--fs {
-      min-height: 100vh;
+      height: 100vh;
     }
   }
 
@@ -53,7 +50,6 @@ body {
     @include display(flex);
 
     &.arm--one {
-      @include transition(width .5s);
 
       .megatron--desktop & {
         @include flex(none);
@@ -67,11 +63,11 @@ body {
 
       .video--hd & {
         width: $megatron-hd-video-width;
-        height: 100%;
       }
 
       .video--fs & {
-        @include flex(auto);
+        width: $megatron-fs-video-width;
+        max-width: unquote("calc(100vw - 2px - 280px)");
       }
     }
 
@@ -101,7 +97,7 @@ body {
 
       .video--small & {
         @include flex(2 1 auto);
-        min-width: 25%;
+        // min-width: 25%;
 
         .megatron--desktop & {
           border-right: 2px solid white;
@@ -181,20 +177,33 @@ body {
 
 
   &__video {
-    @include flex(none);
-    position: relative;
+    @include flex(auto);
+    @include display(flex);
+    @include justify-content(center);
+    @include align-items(center);
     width: 100%;
     background: black;
-    padding-top: (236 / 424) * 100%;
+    // max-height: calc(100vh - "#{$metagron-bar-height}" - $megatron-menu-height);
+    overflow: hidden;
+
+    .video--small & {
+      $offset: $megatron-bar-height + $megatron-menu-height + $megatron-button-height;
+      max-height: unquote("calc(100vh - $offset)");
+    }
+
+    .video--hd & {
+      max-height: unquote("calc(100vh - #{$megatron-bar-height} - #{$megatron-menu-height})");
+    }
 
     .video--fs & {
+      max-height: unquote("calc(100vh - #{$megatron-bar-height} - #{$megatron-menu-height})");
       @include flex(auto);
     }
 
     video {
-      position: absolute;
-      left: 0;
-      top: 0;
+      // position: absolute;
+      // left: 0;
+      // top: 0;
       width: 100%;
       height: 100%;
 

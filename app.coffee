@@ -29,6 +29,10 @@ megatron.controller 'megatron', [
     $scope.downsizeIfNecessary = ->
       if $scope.windowWidth < 940 then console.error 'STOP'
 
+
+    $scope.videoSize = ->
+      maxheight: $window.innerHeight - 24 - 44
+
     $scope.setWindowSizes()
 
     $scope.videoSize = $window.localStorage.getItem 'megatron-size'
