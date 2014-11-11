@@ -1,5 +1,6 @@
 // Variables
 $megatron-min-width: 940px;
+$megatron-min-height: 480px;
 
 $megatron-bar-height: 24px !default;
 $megatron-bar-font-size: 14px !default;
@@ -32,7 +33,7 @@ $megatron-gold-background: #ffcb00 !default;
   &__body {
     @include display(flex);
     width: 100%;
-    min-height: 400px;
+    // min-height: $megatron-min-height;
 
     .megatron--desktop & {
       @include flex-direction(row);
@@ -183,27 +184,26 @@ $megatron-gold-background: #ffcb00 !default;
     @include align-items(center);
     width: 100%;
     background: black;
-    // max-height: calc(100vh - "#{$metagron-bar-height}" - $megatron-menu-height);
     overflow: hidden;
+
+    $offset: $megatron-bar-height + $megatron-menu-height;
+    // min-height: unquote("calc(#{$megatron-min-height} - #{$offset})");
+    max-height: unquote("calc(100vh - #{$offset})");
 
     .video--small & {
       $offset: $megatron-bar-height + $megatron-menu-height + $megatron-button-height;
-      max-height: unquote("calc(100vh - $offset)");
+      max-height: unquote("calc(100vh - #{$offset})");
     }
 
-    .video--hd & {
-      max-height: unquote("calc(100vh - #{$megatron-bar-height} - #{$megatron-menu-height})");
-    }
+    // .video--hd & {
+
+    // }
 
     .video--fs & {
-      max-height: unquote("calc(100vh - #{$megatron-bar-height} - #{$megatron-menu-height})");
       @include flex(auto);
     }
 
     video {
-      // position: absolute;
-      // left: 0;
-      // top: 0;
       width: 100%;
       height: 100%;
 
@@ -314,7 +314,7 @@ $megatron-gold-background: #ffcb00 !default;
     text-align: center;
 
     .video--small & {
-      min-height: $megatron-button-height;
+      height: $megatron-button-height;
     }
 
     .video--hd &,
