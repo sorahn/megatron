@@ -1,12 +1,15 @@
 // Variables
 $megatron-min-width: 940px;
-$megatron-min-height: 480px;
+$megatron-min-height: 400px;
+$megatron-max-height: 100vh;
 
+// Megatron Bar
 $megatron-bar-height: 24px !default;
 $megatron-bar-font-size: 14px !default;
 $megatron-bar-background: gray !default;
 $megatron-bar-color: white !default;
 
+// Megatron Menu
 $megatron-menu-height: 44px !default;
 $megatron-menu-background: #444 !default;
 $megatron-menu-color: #999 !default;
@@ -14,20 +17,35 @@ $megatron-menu-color-hover: lightgray !default;
 $megatron-menu-color-active: lightgray !default;
 $megatron-menu-color-disabled: #555 !default;
 
+// Megatron Buttons
+$megatron-button-height: 80px !default;
+$megatron-button-background: #3399cc !default;
+$megatron-gold-width: 200px !default;
+$megatron-gold-background: #ffcb00 !default;
+
+// Megatron Video Variables
+// $megatron-aspect-ratio: 9 / 16;
+$megatron-aspect-ratio: 3 / 4 !default;
 $megatron-small-video-width: 45% !default;
 $megatron-hd-video-width: 75% !default;
 $megatron-fs-video-width: 85% !default;
 
-$megatron-button-height: 80px !default;
-$megatron-button-background: #3399cc !default;
+$megatron-small-video-offset: $megatron-bar-height + $megatron-menu-height + $megatron-button-height;
+$megatron-small-video-max-width: unquote("calc((#{$megatron-max-height} - #{$megatron-small-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-small-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-small-video-offset})");
 
-$megatron-gold-width: 200px !default;
-$megatron-gold-background: #ffcb00 !default;
+$megatron-video-offset: $megatron-bar-height + $megatron-menu-height;
+$megatron-video-max-width: unquote("calc((#{$megatron-max-height} - #{$megatron-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-video-offset})");
+
+@function strip-units($number) {
+  @return $number / ($number * 0 + 1);
+}
 
 .megatron {
   margin: 0 auto;
   min-width: $megatron-min-width;
-  max-height: 100vh;
+  max-height: $megatron-max-height;
 
   // .megatron__body
   &__body {
@@ -35,16 +53,15 @@ $megatron-gold-background: #ffcb00 !default;
     width: 100%;
     // min-height: $megatron-min-height;
 
-    .megatron--desktop & {
+    .megatron--landscape & {
       @include flex-direction(row);
       @include align-items(stretch);
     }
 
     &.video--fs {
-      height: 100vh;
+      height: $megatron-max-height;
     }
   }
-
 
   // .megatron__arm
   &__arm {
@@ -52,7 +69,7 @@ $megatron-gold-background: #ffcb00 !default;
 
     &.arm--one {
 
-      .megatron--desktop & {
+      .megatron--landscape & {
         @include flex(none);
         @include flex-direction(column);
         border-right: 2px solid white;
@@ -60,15 +77,18 @@ $megatron-gold-background: #ffcb00 !default;
 
       .video--small & {
         width: $megatron-small-video-width;
+        max-width: $megatron-small-video-max-width;
       }
 
       .video--hd & {
         width: $megatron-hd-video-width;
+        max-width: $megatron-video-max-width
       }
 
       .video--fs & {
+        @include flex(0 1 auto);
         width: $megatron-fs-video-width;
-        max-width: unquote("calc(100vw - 2px - 280px)");
+        max-width: $megatron-video-max-width
       }
     }
 
@@ -82,12 +102,12 @@ $megatron-gold-background: #ffcb00 !default;
 
       .video--fs & {
         @include flex-direction(column);
-        @include flex(none);
-        width: 280px;
+        min-width: 280px;
       }
     }
   }
 
+  // .megatron__hand
   &__hand {
     @include flex(auto);
 
@@ -100,7 +120,7 @@ $megatron-gold-background: #ffcb00 !default;
         @include flex(2 1 auto);
         // min-width: 25%;
 
-        .megatron--desktop & {
+        .megatron--landscape & {
           border-right: 2px solid white;
         }
       }
@@ -109,7 +129,7 @@ $megatron-gold-background: #ffcb00 !default;
       .video--fs & {
         @include flex(2 1 auto);
 
-        .megatron--desktop & {
+        .megatron--landscape & {
           border-bottom: 2px solid white;
         }
       }
@@ -118,7 +138,7 @@ $megatron-gold-background: #ffcb00 !default;
     &.hand--two {
       background: lightgreen;
 
-      .megatron--desktop & {
+      .megatron--landscape & {
         @include flex-direction(column);
       }
 
@@ -154,6 +174,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__close
   &__close {
     @include flex(none);
     height: $megatron-bar-height;
@@ -166,38 +187,43 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__ranks
   &__ranks {
     @include flex(none);
     padding: 0 .5em;
   }
 
+  // .megatron__close
   &__favorite {
     @include flex(none);
     padding: 0 .5em;
   }
 
-
+  // .megatron__video
   &__video {
+    @include box-sizing(border-box);
     @include flex(auto);
     @include display(flex);
     @include justify-content(center);
     @include align-items(center);
-    width: 100%;
+    position: relative;
+    width: auto;
+    max-width: 100%;
+    max-height: $megatron-video-max-height;
     background: black;
     overflow: hidden;
 
-    $offset: $megatron-bar-height + $megatron-menu-height;
-    // min-height: unquote("calc(#{$megatron-min-height} - #{$offset})");
-    max-height: unquote("calc(100vh - #{$offset})");
-
-    .video--small & {
-      $offset: $megatron-bar-height + $megatron-menu-height + $megatron-button-height;
-      max-height: unquote("calc(100vh - #{$offset})");
+    // Force an aspect ratio
+    &::after {
+      padding-top: $megatron-aspect-ratio * 100%;
+      content: '';
+      display: block;
+      width: 100%;
     }
 
-    // .video--hd & {
-
-    // }
+    .video--small & {
+      max-height: $megatron-small-video-max-height;
+    }
 
     .video--fs & {
       @include flex(auto);
@@ -206,6 +232,7 @@ $megatron-gold-background: #ffcb00 !default;
     video {
       width: 100%;
       height: 100%;
+      position: absolute;
 
       &.inactive {
         opacity: 0.4;
@@ -213,6 +240,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__actions
   &__actions {
     @include flex(auto);
     @include display(flex);
@@ -233,6 +261,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__menu
   &__menu {
     @include display(flex);
     @include justify-content(space-between);
@@ -246,8 +275,9 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__options
   &__options {
-    @include flex(0 1 auto);
+    @include flex(none);
     @include clearfix;
     list-style: none;
     margin: 0;
@@ -278,6 +308,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__gold
   &__gold {
     @include flex(auto);
     @include display(flex);
@@ -295,10 +326,12 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__features
   &__features {
     display: none;
   }
 
+  // .megatron__button
   &__button {
     @include flex(auto);
     @include display(flex);
@@ -367,6 +400,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__info
   &__info {
     background: $megatron-gold-background;
     padding: 0.5em;
@@ -383,6 +417,7 @@ $megatron-gold-background: #ffcb00 !default;
     }
   }
 
+  // .megatron__chat
   &__chat {
     @include flex(1);
     border: 1px solid $megatron-bar-background;
