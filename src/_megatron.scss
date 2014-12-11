@@ -86,7 +86,7 @@ $megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-
       }
 
       .video--fs & {
-        @include flex(0 1 auto);
+        @include flex(auto);
         width: $megatron-fs-video-width;
       }
     }
