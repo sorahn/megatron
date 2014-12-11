@@ -24,7 +24,7 @@ $megatron-gold-width: 200px !default;
 $megatron-gold-background: #ffcb00 !default;
 
 // Megatron Video Variables
-// $megatron-aspect-ratio: 9 / 16;
+$megatron-aspect-ratio: 9 / 16;
 $megatron-aspect-ratio: 3 / 4 !default;
 $megatron-small-video-width: 45% !default;
 $megatron-hd-video-width: 75% !default;
@@ -88,7 +88,6 @@ $megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-
       .video--fs & {
         @include flex(0 1 auto);
         width: $megatron-fs-video-width;
-        max-width: $megatron-video-max-width
       }
     }
 
@@ -101,8 +100,9 @@ $megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-
       }
 
       .video--fs & {
+        @include flex(none);
         @include flex-direction(column);
-        min-width: 280px;
+        width: 280px;
       }
     }
   }
