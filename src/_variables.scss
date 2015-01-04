@@ -1,0 +1,55 @@
+// Variables
+$megatron-min-width: 940px;
+$megatron-min-height: 400px;
+$megatron-max-height: 100vh;
+
+// Megatron Bar
+$megatron-bar-height: 24px !default;
+$megatron-bar-font-size: 14px !default;
+$megatron-bar-background: gray !default;
+$megatron-bar-color: white !default;
+
+// Megatron Menu
+$megatron-menu-height: 44px !default;
+$megatron-menu-background: #444 !default;
+$megatron-menu-color: #999 !default;
+$megatron-menu-color-hover: lightgray !default;
+$megatron-menu-color-active: lightgray !default;
+$megatron-menu-color-disabled: #555 !default;
+
+// Megatron Buttons
+$megatron-button-height: 80px !default;
+$megatron-button-background: #3399cc !default;
+$megatron-gold-width: 200px !default;
+$megatron-gold-background: #ffcb00 !default;
+
+// Megatron Video Variables
+$megatron-aspect-ratio: 9 / 16;
+$megatron-aspect-ratio: 3 / 4 !default;
+$megatron-small-video-width: 45vw !default;
+$megatron-hd-video-width: 75vw !default;
+$megatron-fs-video-width: 85vw !default;
+
+// Megatron Sidebar Widths
+$megatron-sidebar-width: 270px;
+$megatron-sidebar-width-wide: 400px;
+
+// Calculations
+$megatron-small-video-offset: $megatron-bar-height + $megatron-menu-height + $megatron-button-height;
+$megatron-video-offset: $megatron-bar-height + $megatron-menu-height;
+
+$megatron-small-max-height: unquote("calc((#{$megatron-small-video-width} + #{$megatron-small-video-offset}) * #{$megatron-aspect-ratio})");
+$megatron-hd-max-height: unquote("calc((#{$megatron-hd-video-width} + #{$megatron-video-offset}) * #{$megatron-aspect-ratio})");
+$megatron-fs-max-height: 100vh;
+
+// Small Video Constraints.
+$megatron-small-video-max-width: unquote("calc((#{$megatron-max-height} - #{$megatron-small-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-small-video-min-width: unquote("calc((#{$megatron-min-height} - #{$megatron-small-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-small-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-small-video-offset})");
+$megatron-small-video-min-height: unquote("calc(#{$megatron-min-height} - #{$megatron-small-video-offset})");
+
+// Video Constraints.
+$megatron-video-max-width: unquote("calc((#{$megatron-max-height} - #{$megatron-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-video-min-width: unquote("calc(#{$megatron-min-height} - #{$megatron-video-offset}) / #{$megatron-aspect-ratio})");
+$megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-video-offset})");
+$megatron-video-min-height: unquote("calc(#{$megatron-min-height} - #{$megatron-video-offset})");

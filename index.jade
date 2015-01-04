@@ -1,93 +1,119 @@
 //- Main Container
-#megatron.megatron.megatron--landscape(ng-controller="megatron")
+#megatron.megatron__container.megatron--landscape(ng-controller="megatron" ng-class="'video--' + videoSize")
 
-  //- Optional
-  .megatron__head
+  .megatron
 
-  //- Body
-  .megatron__body(ng-class="'video--' + videoSize")
+    //- Optional
+    .megatron__head
 
-    //- First arm - Title, Video, Actions
-    .megatron__arm.arm--one
+    //- Body
+    .megatron__body
 
-      //- Title bar
-      .megatron__bar
-        h3.megatron__title Megatron (Final Battle)
-        .megatron__close: i.fa.fa-times
-
-      //- Video Container
-      .megatron__video
-        video(poster="megatron.jpg" autoplay)
-          source(src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm")
-            //- video(poster="http://placehold.it/320x240" autoplay)
-
-
-        //- <video width="640" height="360" controls="" autoplay="">
-        //-   <!-- MP4 must be first for iPad! -->
-        //-   <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"><!-- Safari / iOS, IE9 -->
-        //-   <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm"><!-- Chrome10+, Ffx4+, Opera10.6+ -->
-        //-   <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg"><!-- Firefox3.6+ / Opera 10.5+ -->
-        //-   <!-- fallback to Flash: -->
-        //-   <object width="640" height="360" type="application/x-shockwave-flash" data="player.swf">
-        //-     <!-- Firefox uses the `data` attribute above, IE/Safari uses the param below -->
-        //-     <param name="movie" value="player.swf">
-        //-     <param name="flashvars" value="autostart=true&amp;controlbar=over&amp;image=poster.jpg&amp;file=http://clips.vorwaerts-gmbh.de/VfE_flash.mp4">
-        //-     <!-- fallback image -->
-        //-     <img src="poster.jpg" width="640" height="360" alt="Big Buck Bunny" title="No video playback capabilities, please download the video below">
-        //-   </object>
-        //- </video>
-
-      //- Any Video Actions
-      .megatron__actions
-        nav.megatron__menu
-          ul.megatron__options
-            li: a.disabled: i.fa.fa-lg.fa-repeat
-            li: a.disabled: i.fa.fa-lg.fa-volume-up
-
-            li: a(ng-click="changeVideoSize('small')" ng-class="{active: videoSize == 'small'}")
-              i.fa.fa-lg.fa-compress
-
-            li: a(ng-click="changeVideoSize('hd')" ng-class="{active: videoSize == 'hd'}")
-              i.fa.fa-lg.fa-expand
-
-            li: a(ng-click="changeVideoSize('fs')" ng-class="{active: videoSize == 'fs'}")
-              i.fa.fa-lg.fa-arrows-alt
-
-          .megatron__gold: button Gold Button
-
-        nav.megatron__features
-        button.megatron__button
-          .text
-            h3 Click Here
-            h4 push this giant button
-
-    //- Second arm - Info Chat
-    .megatron__arm.arm--two
-
-      .megatron__hand.hand--one
+      //- First arm - Title, Video, Actions
+      .megatron__arm.arm--one
 
         //- Title bar
         .megatron__bar
-          .megatron__ranks
+          h3.bar__title Megatron (Final Battle)
+          .bar__close: i.fa.fa-times
 
-          .megatron__favorite
-
-        .megatron__note
-          blockquote
-            p Sentient robotic lifeform from the planet Cybertron and the leader of the villainous Decepticons.
-
-        .megatron__info
-          h6 What's going on over here?
-          p.
-            I have the ability to transform between his robot shape and
-            various weapons or vehicles.
-
-        .megatron__chat
+        //- Video Container
+        .megatron__video
+          video(poster="megatron.jpg" autoplay)
+          //-   source(src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm")
+              //- video(poster="http://placehold.it/320x240" autoplay)
 
 
-      //- Third arm - ads.
-      .megatron__hand.hand--two
-        .megatron__panel
+          //- <video width="640" height="360" controls="" autoplay="">
+          //-   <!-- MP4 must be first for iPad! -->
+          //-   <source src="http://clips.vorwaerts-gmbh.de/VfE_html5.mp4" type="video/mp4"><!-- Safari / iOS, IE9 -->
+          //-   <source src="http://clips.vorwaerts-gmbh.de/VfE.webm" type="video/webm"><!-- Chrome10+, Ffx4+, Opera10.6+ -->
+          //-   <source src="http://clips.vorwaerts-gmbh.de/VfE.ogv" type="video/ogg"><!-- Firefox3.6+ / Opera 10.5+ -->
+          //-   <!-- fallback to Flash: -->
+          //-   <object width="640" height="360" type="application/x-shockwave-flash" data="player.swf">
+          //-     <!-- Firefox uses the `data` attribute above, IE/Safari uses the param below -->
+          //-     <param name="movie" value="player.swf">
+          //-     <param name="flashvars" value="autostart=true&amp;controlbar=over&amp;image=poster.jpg&amp;file=http://clips.vorwaerts-gmbh.de/VfE_flash.mp4">
+          //-     <!-- fallback image -->
+          //-     <img src="poster.jpg" width="640" height="360" alt="Big Buck Bunny" title="No video playback capabilities, please download the video below">
+          //-   </object>
+          //- </video>
 
-  //- Footer
-  .megatron__foot
+        //- Any Video Actions
+        .megatron__actions
+          nav.megatron__menu
+            ul.megatron__options
+              li: a.disabled: i.fa.fa-lg.fa-repeat
+              li: a.disabled: i.fa.fa-lg.fa-volume-up
+
+              li: a(ng-click="changeVideoSize('small')" ng-class="{active: videoSize == 'small'}")
+                i.fa.fa-lg.fa-compress
+
+              li: a(ng-click="changeVideoSize('hd')" ng-class="{active: videoSize == 'hd'}")
+                i.fa.fa-lg.fa-expand
+
+              li: a(ng-click="changeVideoSize('fs')" ng-class="{active: videoSize == 'fs'}")
+                i.fa.fa-lg.fa-arrows-alt
+
+            .megatron__gold: button Gold Button
+
+          nav.megatron__features
+          button.megatron__button
+            .text
+              h3 Click Here
+              h4 push this giant button
+
+      //- Second arm - Info Chat
+      .megatron__arm.arm--two
+
+        .megatron__hand.hand--one
+
+          //- Title bar
+          .megatron__bar
+            .megatron__ranks
+
+            .megatron__favorite
+
+          .megatron__topic
+            blockquote
+              p Sentient robotic lifeform from the planet Cybertron and the leader of the villainous Decepticons.
+
+          .megatron__info
+            h6 What's going on over here?
+            p.
+              I have the ability to transform between his robot shape and
+              various weapons or vehicles.
+
+          .megatron__chat
+            .chat__box
+              //- - var n = 0
+              //- ul
+              //-   while n < 100
+              //-     - n++
+
+              //-     if i % 3 == 0
+              //-       li.host chat line #{i}
+              //-     else if i % 5 == 0
+              //-       li.system chat line #{i}
+              //-     else
+              //-       li.user chat line #{i}
+
+            .chat__input
+              input(type="text")
+
+
+        //- Third arm - ads.
+        .megatron__hand.hand--two
+          .megatron__bar
+            .bar__tab.tab--similar
+              h3.bar__title Similar Robots
+            .bar__tab.tab--users
+              h3.bar__title: i.fa.fa-users
+            .bar__tab.tab--help
+              h3.bar__title: i.fa.fa-question
+
+
+          .megatron__panel
+
+    //- Footer
+    .megatron__foot

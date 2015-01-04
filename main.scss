@@ -1,3 +1,5 @@
 @import "bower_components/normalize.scss/normalize";
 @import "bower_components/bourbon/dist/bourbon";
-@import "src/megatron.scss";
+
+@import "src/variables";
+@import "src/megatron";
