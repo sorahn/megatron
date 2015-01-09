@@ -152,6 +152,12 @@
   .bar__ranks {
     @include flex(none);
     padding: 0 .5em;
+
+    .ranks__point {
+      font-size: $megatron-bar-font-size;
+      line-height: $megatron-bar-height - 2;
+      height: $megatron-bar-height;
+    }
   }
 
   .bar__favorite {
@@ -173,6 +179,10 @@
     & + .bar__tab {
       border-left: 1px solid darken($megatron-bar-background, 10%);
     }
+  }
+
+  .bar__status {
+    
   }
 }
 
@@ -397,45 +407,28 @@
 
   .chat__box {
     @include flex(auto);
-    overflow: scroll;
     max-height: 100%;
+    position: relative;
+
+    &::after {
+      @include background-image(linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%));
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 10px;
+      z-index: 10;
+      content: '';
+    }
   }
 
   .chat__input {
     @include flex(none);
   }
 
-  ul {
-    display: block;
+  iframe {
     width: 100%;
-    overflow: hidden;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-
-  li {
-    line-height: 12px;
-    font-size: 10px;
-
-    & + li {
-      border-top: 1px solid black;
-    }
-
-    &.user {
-      background: white;
-      color: black;
-    }
-
-    &.system {
-      background: blue;
-      color: white;
-    }
-
-    &.host {
-      background: lightgray;
-      color: black;
-    }
+    height: 100%;
+    position: absolute;
   }
 
   input {
@@ -445,5 +438,57 @@
     border-top: 1px solid $megatron-bar-background;
     outline: 0;
     padding: .25em .5em;
+    font-size: 12px;
+    line-height: 1.4;
+  }
+}
+
+.megatron__window {
+  &.window--chat {
+    ul {
+      display: block;
+      width: 100%;
+      overflow: hidden;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      height: 14px;
+      line-height: 14px;
+      font-size: 10px;
+      position: relative;
+
+      & + li {
+        border-top: 1px solid black;
+      }
+
+      &.user {
+        background: white;
+        color: black;
+      }
+
+      &.system {
+        background: blue;
+        color: white;
+        padding-left: 2em;
+
+        &::before {
+          content: '\201C';
+          font-size: 350%;
+          padding-right: 10px;
+          position: absolute;
+          top: 0;
+          left: 3px;
+          line-height: 32px;
+        }
+      }
+
+      &.host {
+        background: lightgray;
+        color: black;
+      }
+    }
   }
 }

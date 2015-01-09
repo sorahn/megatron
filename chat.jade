@@ -1,0 +1,13 @@
+.megatron__window.window--chat
+  .chat__list
+    - var n = 0
+    ul
+      while n < 100
+        - n++
+
+        if n % 3 == 0
+          li.host chat line #{n}
+        else if n % 5 == 0
+          li.system chat line #{n}
+        else
+          li.user chat line #{n}

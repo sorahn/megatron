@@ -17,6 +17,11 @@
     "bourbon": "v3.2.3",
     "normalize.scss": "kristerkari/normalize.scss",
     "angular": "~1.3.1",
-    "angular-scroll": "~0.6.2"
+    "angular-scroll": "~0.6.2",
+    "flynns": "sorahn/flynns"
+  },
+  "resolutions": {
+    "bourbon": "v3.2.3",
+    "angular": "~1.3.1"
   }
 }
