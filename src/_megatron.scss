@@ -137,7 +137,7 @@
     padding: 0 .5em;
   }
 
-  .bar__close {
+  .bar__icon {
     @include flex(none);
     height: $megatron-bar-height;
     line-height: $megatron-bar-height - 2;
@@ -147,6 +147,10 @@
     i {
       color: $megatron-bar-color;
     }
+
+    i[class~=fa-heart] {
+      color: #f00;
+    }
   }
 
   .bar__ranks {
@@ -155,7 +159,7 @@
 
     .ranks__point {
       font-size: $megatron-bar-font-size;
-      line-height: $megatron-bar-height - 2;
+      line-height: $megatron-bar-height;
       height: $megatron-bar-height;
     }
   }
@@ -411,9 +415,9 @@
     position: relative;
 
     &::after {
-      @include background-image(linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%));
+      @include background-image(linear-gradient(bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%));
       position: absolute;
-      bottom: 0;
+      top: 0;
       width: 100%;
       height: 10px;
       z-index: 10;
