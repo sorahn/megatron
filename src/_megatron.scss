@@ -2,6 +2,13 @@
   @return $number / ($number * 0 + 1);
 }
 
+// This is so mobile safari isn't a dick bag.
+// It won't scroll the iframe, or do other normal sizing things with out these.
+.scroll-wrapper {
+  -webkit-overflow-scrolling: touch;
+    overflow-y: scroll;
+}
+
 .megatron {
   margin: 0 auto;
 

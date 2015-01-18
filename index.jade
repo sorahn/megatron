@@ -109,18 +109,8 @@
 
             .megatron__chat
               .chat__box
-                iframe(src="/chat.html", frameborder="0")
-                //- - var n = 0
-                //- ul
-                //-   while n < 100
-                //-     - n++
-
-                //-     if i % 3 == 0
-                //-       li.host chat line #{i}
-                //-     else if i % 5 == 0
-                //-       li.system chat line #{i}
-                //-     else
-                //-       li.user chat line #{i}
+                .scroll-wrapper
+                  iframe(src="/chat.html", frameborder="0")
 
               .chat__input
                 input(type="text" placeholder="Enter Text Here")
