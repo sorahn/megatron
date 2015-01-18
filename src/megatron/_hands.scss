@@ -25,6 +25,10 @@
   &.hand--two {
     background: lightgreen;
 
+    .phone & {
+      display: none;
+    }
+
     .desktop & {
       @include flex-direction(column);
     }
