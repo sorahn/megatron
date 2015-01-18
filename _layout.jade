@@ -13,10 +13,18 @@ html(lang="en")
 
     link(href="main.css" rel="stylesheet")
 
+    //-
     //- Javascript
-    script(src="bower_components/angular/angular.js")
-    script(src="bower_components/angular-scroll/angular-scroll.js")
-    script(src="bower_components/matchmedia-ng/matchmedia-ng.js")
-    script(src="app.js")
+    //-
+
+    //- Scream and Brim. For iOS 8 Safari.
+    script(src="bower_components/scream/dist/scream.js")
+    script(src="bower_components/brim/dist/brim.js")
+
+    //- Angular... Here for now...
+    //- script(src="bower_components/angular/angular.js")
+    //- script(src="bower_components/angular-scroll/angular-scroll.js")
+    //- script(src="bower_components/matchmedia-ng/matchmedia-ng.js")
+    //- script(src="app.js")
 
   body!= yield

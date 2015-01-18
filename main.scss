@@ -6,3 +6,28 @@
 
 @import "src/variables";
 @import "src/megatron";
+
+#brim-mask {
+  background: black;
+  color: white;
+
+  // Hide the brim mask for the chrome device simulator
+  &.chrome {
+    display: none !important;
+    pointer-events: none;
+  }
+}
+
+.center-container {
+  @include box-sizing(border-box);
+  @include display(flex);
+  @include align-items(center);
+  @include justify-content(center);
+  padding: 50px 50px;
+
+  text-align: center;
+
+  h1 {
+    margin: 0;
+  }
+}
