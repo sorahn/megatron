@@ -1,5 +1,3 @@
-
-
 .megatron__bar {
   @include display(flex);
   @include justify-content(space-between);
@@ -75,9 +73,14 @@
     @include flex(1 1 100%);
   }
 
-
   .icon--favorite {
     .arm--one & {
+      display: none;
+    }
+  }
+
+  .arm--two & {
+    .phone & {
       display: none;
     }
   }

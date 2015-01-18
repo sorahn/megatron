@@ -1,0 +1,48 @@
+.megatron__hand {
+  @include flex(auto);
+
+  &.hand--one {
+    background: desaturate(orange, 15%);
+    @include display(flex);
+    @include flex-direction(column-reverse);
+
+    .desktop & {
+      @include flex-direction(column);
+    }
+
+    .desktop.video--small & {
+      @include flex(1);
+      border-right: 2px solid white;
+    }
+
+    .desktop.video--hd &,
+    .desktop.video--fs & {
+      @include flex(2 1 auto);
+      border-bottom: 2px solid white;
+    }
+  }
+
+  &.hand--two {
+    background: lightgreen;
+
+    .desktop & {
+      @include flex-direction(column);
+    }
+
+    .video--small & {
+      @include flex(none);
+
+      width: $megatron-sidebar-width;
+
+      @media (min-width: 1260px) {
+        width: $megatron-sidebar-width-wide;
+      }
+    }
+
+    .video--hd &,
+    .video--fs & {
+      @include flex(auto);
+    }
+  }
+}
+
