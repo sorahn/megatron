@@ -1,6 +1,6 @@
-//- HTML5
 doctype html
 html(lang="en")
+
   head
 
     //- Meta tag for making mobile devices
@@ -8,12 +8,15 @@ html(lang="en")
       maximum-scale=1.0, user-scalable=no, minimal-ui")
 
     //- CSS
-    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet")
+    link(href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css"
+      rel="stylesheet")
+
     link(href="main.css" rel="stylesheet")
 
     //- Javascript
     script(src="bower_components/angular/angular.js")
     script(src="bower_components/angular-scroll/angular-scroll.js")
+    script(src="bower_components/matchmedia-ng/matchmedia-ng.js")
     script(src="app.js")
 
   body!= yield

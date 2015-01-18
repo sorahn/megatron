@@ -53,3 +53,5 @@ $megatron-video-max-width: unquote("calc((#{$megatron-max-height} - #{$megatron-
 $megatron-video-min-width: unquote("calc(#{$megatron-min-height} - #{$megatron-video-offset}) / #{$megatron-aspect-ratio})");
 $megatron-video-max-height: unquote("calc(#{$megatron-max-height} - #{$megatron-video-offset})");
 $megatron-video-min-height: unquote("calc(#{$megatron-min-height} - #{$megatron-video-offset})");
+
+$megatron-phone-video-height: unquote("calc(100vw * #{$megatron-aspect-ratio})");

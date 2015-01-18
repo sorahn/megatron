@@ -1,11 +1,36 @@
 megatron = angular.module 'megatron', [
-  'duScroll'
+  'duScroll', 'matchmedia-ng'
 ]
 
 megatron.controller 'megatron', [
 
-  '$scope', '$window', '$document'
-  ($scope,   $window,   $document) ->
+  '$scope', '$window', '$document', 'matchmedia'
+  ($scope,   $window,   $document,   matchmedia) ->
+
+    $scope.getClassList = ->
+      out = ""
+      if matchmedia.isPhone()
+        out = "#{out} phone"
+
+      if matchmedia.isTablet()
+        out = "#{out} tablet"
+
+      if matchmedia.isDesktop()
+        out = "#{out} desktop"
+
+      if matchmedia.isPortrait()
+        out = "#{out} portrait"
+
+      if matchmedia.isLandscape()
+        out = "#{out} landscape"
+
+      out = "#{out} video--#{$scope.videoSize}"
+
+      return out
+
+    $scope.classList =
+      phone: matchmedia.isPhone()
+      tablet: matchmedia.isTablet()
 
     $scope.changeVideoSize = (size) ->
       if size != 'fs' then $scope.setVideoSize size

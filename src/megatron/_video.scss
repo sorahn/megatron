@@ -1,0 +1,49 @@
+.megatron__video {
+  @include box-sizing(border-box);
+  @include flex(auto);
+  @include display(flex);
+  @include justify-content(center);
+  @include align-items(center);
+  position: relative;
+  width: auto;
+  max-width: 100%;
+  max-height: $megatron-video-max-height;
+  background: black;
+  overflow: hidden;
+
+  // Force an aspect ratio
+  &::after {
+    padding-top: $megatron-aspect-ratio * 100%;
+    content: "";
+    display: block;
+    width: 100%;
+  }
+
+  .desktop & {
+    min-height: $megatron-video-min-height;
+  }
+
+  .desktop.video--small & {
+    max-height: $megatron-small-video-max-height;
+    min-height: $megatron-small-video-min-height;
+  }
+
+  .desktop.video--fs & {
+    @include flex(auto);
+  }
+
+  .phone & {
+    @include flex(none);
+    height: $megatron-phone-video-height;
+  }
+
+  video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
+    &.inactive {
+      opacity: 0.4;
+    }
+  }
+}

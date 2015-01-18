@@ -1,0 +1,48 @@
+.megatron__arms {
+  @include display(flex);
+
+  &.arm--one {
+    @include flex(none);
+    @include flex-direction(column);
+
+    .desktop & {
+      border-right: 2px solid white;
+    }
+
+    .phone & {
+      width: 100%;
+    }
+
+    .desktop.video--small & {
+      width: $megatron-small-video-width;
+      max-width: $megatron-small-video-max-width;
+      min-width: $megatron-small-video-min-width;
+    }
+
+    .desktop.video--hd & {
+      width: $megatron-hd-video-width;
+      max-width: $megatron-video-max-width;
+      min-width: $megatron-video-min-width;
+    }
+
+    .desktop.video--fs & {
+      @include flex(auto);
+      width: $megatron-fs-video-width;
+    }
+  }
+
+  &.arm--two {
+    @include flex(auto);
+    @include display(flex);
+    @include flex-direction(column);
+
+    .megatron--mobile & {
+      width: 100%;
+    }
+
+    .desktop.video--fs & {
+      @include flex(none);
+      width: 280px;
+    }
+  }
+}

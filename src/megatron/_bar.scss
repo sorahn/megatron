@@ -1,0 +1,84 @@
+
+
+.megatron__bar {
+  @include display(flex);
+  @include justify-content(space-between);
+  height: $megatron-bar-height;
+  background: $megatron-bar-background;
+
+  .bar__title {
+    @include flex(none);
+    color: $megatron-bar-color;
+    margin: 0;
+    line-height: $megatron-bar-height;
+    font-size: $megatron-bar-font-size;
+    padding: 0 .5em;
+
+    .hand--one & {
+      display: none;
+    }
+  }
+
+  .bar__icon {
+    @include flex(none);
+    height: $megatron-bar-height;
+    line-height: $megatron-bar-height;
+    font-size: $megatron-bar-font-size;
+    padding: 0 .5em;
+
+    i {
+      color: $megatron-bar-color;
+    }
+
+    i[class~=fa-heart] {
+      color: #f00;
+    }
+  }
+
+  .bar__ranks {
+    @include flex(none);
+    padding: 0 .5em;
+
+    .ranks__point {
+      font-size: $megatron-bar-font-size;
+      line-height: $megatron-bar-height;
+      height: $megatron-bar-height;
+    }
+
+    .arm--one & {
+      display: none;
+    }
+  }
+
+  .bar__favorite {
+    @include flex(none);
+    padding: 0 .5em;
+  }
+
+  .bar__tab {
+    @include flex(none);
+
+    &.active {
+      background: lighten($megatron-bar-background, 10%);
+    }
+
+    &.tab--similar {
+      @include flex(auto);
+    }
+
+    & + .bar__tab {
+      border-left: 1px solid darken($megatron-bar-background, 10%);
+    }
+  }
+
+  .bar__spacer {
+    @include flex(1 1 100%);
+  }
+
+
+  .icon--favorite {
+    .arm--one & {
+      display: none;
+    }
+  }
+}
