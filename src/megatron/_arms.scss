@@ -36,8 +36,12 @@
     @include display(flex);
     @include flex-direction(column);
 
-    .megatron--mobile & {
+    .phone & {
       width: 100%;
+    }
+
+    .phone.landscape & {
+      display: none;
     }
 
     .desktop.video--fs & {
