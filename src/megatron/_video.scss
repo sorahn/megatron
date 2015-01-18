@@ -7,7 +7,6 @@
   position: relative;
   width: auto;
   max-width: 100%;
-  max-height: $megatron-video-max-height;
   background: black;
   overflow: hidden;
 
@@ -21,6 +20,7 @@
 
   .desktop & {
     min-height: $megatron-video-min-height;
+    max-height: $megatron-video-max-height;
   }
 
   .desktop.video--small & {
@@ -32,7 +32,7 @@
     @include flex(auto);
   }
 
-  .phone & {
+  .phone.portrait & {
     @include flex(none);
     height: $megatron-phone-video-height;
   }

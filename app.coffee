@@ -9,6 +9,7 @@ megatron.controller 'megatron', [
 
     $scope.getClassList = ->
       out = ""
+
       if matchmedia.isPhone()
         out = "#{out} phone"
 
@@ -16,7 +17,7 @@ megatron.controller 'megatron', [
         out = "#{out} tablet"
 
       if matchmedia.isDesktop()
-        out = "#{out} desktop"
+        out = "#{out} desktop video--#{$scope.videoSize}"
 
       if matchmedia.isPortrait()
         out = "#{out} portrait"
@@ -24,13 +25,7 @@ megatron.controller 'megatron', [
       if matchmedia.isLandscape()
         out = "#{out} landscape"
 
-      out = "#{out} video--#{$scope.videoSize}"
-
       return out
-
-    $scope.classList =
-      phone: matchmedia.isPhone()
-      tablet: matchmedia.isTablet()
 
     $scope.changeVideoSize = (size) ->
       if size != 'fs' then $scope.setVideoSize size

@@ -47,6 +47,10 @@
     position: relative;
   }
 
+  .phone.landscape & {
+    @include flex(auto);
+  }
+
   .desktop & {
     @include flex(auto);
     @include display(flex);

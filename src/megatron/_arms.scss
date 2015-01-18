@@ -13,6 +13,10 @@
       width: 100%;
     }
 
+    .phone.landscape & {
+      height: 100vh;
+    }
+
     .desktop.video--small & {
       width: $megatron-small-video-width;
       max-width: $megatron-small-video-max-width;
